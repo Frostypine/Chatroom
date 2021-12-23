@@ -11,11 +11,13 @@ import Home from "./components/Home";
 import Chat from "./components/Chat/Chat";
 import AboutUs from "./components/AboutUs";
 import User from "./components/User/User";
-
+import ScrollToTop from "react-scroll-to-top";
 function App() {
   return (
     <div className="App">
+ <ScrollToTop smooth />
       <Navigation />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/chat" element={<Chat />} />
