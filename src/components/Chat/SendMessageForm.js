@@ -60,14 +60,13 @@ function SendMessageForm({ chatroom }) {
     updateChatroom(messageSubmitData._id, {messages: messageSubmitData.messages})
     socket.emit("sendChatroomMessage", messageSubmitData)
     setMessageData("");
-     //e.target.value
-    let count = user.msgTotal;
-       
-   // console.log(e.target.value)
+    
+  
+   // console.log(e.target.msgTotal)
    //console.log(count)
-     setMsgTotal(e.target.value);
+     setMsgTotal( e.target.msgTotal +1);
      updateMsgTotal(); 
-     count += 1; 
+    
   };
 
   //const localUserInfo = useSelector(selectLocalUserInfo);
@@ -92,9 +91,10 @@ function SendMessageForm({ chatroom }) {
         <input
           name="message"
           onChange={(e) => {
+          
             setMessageData(e.target.value)
-            // setMsgTotal(e.target.value);
-            // updateMsgTotal(); 
+            setMsgTotal(e.target.msgTotal);
+  
           }}
           className="message"
           id="inputID"
